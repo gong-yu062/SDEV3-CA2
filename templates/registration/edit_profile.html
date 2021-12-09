@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Edit Profile{% endblock title %}
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container p-5 my-5 border">
+ <h1>Edit Profile</h1>
+ <br>
+ <form>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Upload profile picture</label>
+      <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+  </form>
+  <br>
+ <div class="form-group">
+ <form method="POST">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <input class="btn btn-primary" type="submit" value="Update Profile">
+ </form>
+ </div>
+{% else %}
+You're not allowed here
+{% endif %}
+{% endblock content %}

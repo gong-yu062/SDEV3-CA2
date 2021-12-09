@@ -1,0 +1,81 @@
+/****Navbar****/
+.nav-item {
+    font-family: "Roboto", sans-serif;
+}
+    .dropdown-item {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    }
+
+body {
+    font-family: 'Roboto', sans-serif;
+        }
+
+        .my_row_class {
+            padding-top: 15px;
+            }
+            .my_row_class .mx-auto p {
+            color: #000;
+            font-size: 12px;
+            }
+            .my_row_class .mx-auto p a {
+            color: #000;
+            font-size: 12px;
+            text-decoration: none;
+            }
+
+            .my_image {
+                width: 100%;
+                height: auto;
+                }
+                .my_title {
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: .2em;
+                }
+                #into-jumbotron {
+                    background: rgb(49, 52, 56);
+                }
+
+                .listHorizontal {
+
+                    color: #b6d8cf;
+                     font-size:30px;
+                     text-transform: uppercase;
+                     list-style: none;
+                     display:inline-block;
+                   
+                   
+                   }
+                   .footer {
+                    height: 50px;
+                    margin-top: -50px;
+                    position: fixed;
+                    padding-top: 20px;
+                    font-size: 14px;
+                  }
+
+                  .my_prod_row_class {
+                    padding-top: 15px;
+                    padding-bottom: 20px;
+                    }
+                    .my_prod_row_class .mx-auto p {
+                    color: #000;
+                    font-size: 12px;
+                    }
+                    .my_prod_row_class .mx-auto p a {
+                    color: #000;
+                    font-size: 12px;
+                    text-decoration: none;
+                    }
+
+                    my_prod_title {
+                        font-size: 30px;
+                        text-transform: uppercase;
+                        letter-spacing: .2em;
+                        padding-top: 15px;
+                        padding-bottom: 10px;
+                        }
+                        .my_prod_text {
+                        padding-right: 20px;
+                        }

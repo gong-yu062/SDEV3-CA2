@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %}User Profile{% endblock title %}
+{% block content %}
+<div class="container p-5 my-5 border">
+<h1>{{user.username}}</h1>
+ Date Of Birth: {{ user.profile.date_of_birth }}
+ <br/>
+ Favourite Gaming Platorm: {{ user.profile.fav_system }}
+</div>
+{% endblock content %}

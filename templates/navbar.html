@@ -1,0 +1,88 @@
+{% load static %}
+<header>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'home' %}"><img id="logo"
+                src="{% static 'images/logo.png' %}" alt="logo"
+                draggable="false" height="60" /></a>
+
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+            data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+        {% if user.is_authenticated %}
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-4">
+                <li class="nav-item">
+                    <a class="nav-link active align-items-center" aria-current="page" href="#"><i
+                            class="fas"></i>{{user.username}}</a>
+                </li>
+                {% endif %}
+            </ul>
+            <form class="d-flex align-items-center w-50 form-search">
+                <div class="input-group">
+                    </ul>
+                    <input type="search" class="form-control" placeholder="Search" aria-label="Search" />
+                </div>
+                <a href="#!" class="text-white"><span class="bi-search ps-3"></span></a>
+            </form>
+
+            <ul class="navbar-nav ms-3">
+                <li class="nav-item">
+                    <a class="nav-link d-flex align-items-center me-3" href="#!"><span class="bi-cart me-2"></span>  My Cart</a>
+                    
+                    {% if user.is_authenticated %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Shop</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'shop:allProdCat' %}"> All Products</a></li>
+                        {% for cat in links %}
+                        <li><a class="dropdown-item" href="{{cat.get_absolute_url}}"> {{cat.name}}</a></li>
+                        <br>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"><span class ="bi-person me-2"></span>My Account</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href=""><span class="bi-person-circle"></span> My profile</a></li>
+                            <li><a class="dropdown-item" href=""><span class="bi-pencil-fill"></span> Edit profile</a></li>
+                            <li><a class="dropdown-item" href=""><span class="bi-arrow-left-right"></span> Password
+                                    Change</a></li>
+                            <li><a class="dropdown-item" href=""><span class="bi-box-arrow-in-right"></span> Log out</a>
+                            </li>
+            </ul>
+        </div>
+
+        <div class="nav navbar-nav">
+            <li class="nav-item">
+                <a class="btn btn-outline-light " href=""><span class="bi-box-arrow-in-left"></span> Login</a>
+                <li class="nav-item">
+                    <a class="btn btn-outline-light" href=""><span class="bi-door-open"></span> Sign up</a>
+            </li>
+        </ul>
+     
+    </div>
+</nav>
+<div id="into-jumbotron" class="p-3 text-center text-white">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 d-flex align-items-center justify-content-center border-right">
+          <a href="" class="text-reset">
+            <h5 class="mb-0"><span class="bi-justify"></span>Browse Around</h5>
+          </a>
+        </div>
+        <div class="col-lg-3 border-right">
+          <span>Welcome to Games Corner, your one stop shop for your gaming needs.</span>
+            
+        </div>
+        <div class="col-lg-3 border-right">
+            <span>The newest Nintendo Switch, PS5 and Xbox Series X games are available.</span>
+              
+          </div>
+      </div>
+    </div>
+  </div>
+  </header>
