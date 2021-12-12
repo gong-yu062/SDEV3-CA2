@@ -29,8 +29,10 @@
             </form>
 
             <ul class="navbar-nav ms-3">
+                
                 <li class="nav-item">
-                    <a class="nav-link d-flex align-items-center me-3" href="#!"><span class="bi-cart me-2"></span>  My Cart</a>
+                    <a class="nav-link d-flex align-items-center me-3" href="{% url 'cart:cart_detail' %}"><span class="bi-cart me-2">({{item_count}})</span>  My Cart </a>
+                
                     
                     {% if user.is_authenticated %}
                 <li class="nav-item dropdown">
