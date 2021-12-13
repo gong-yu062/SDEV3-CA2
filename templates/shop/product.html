@@ -15,12 +15,12 @@ product.category.get_url }}">{{product.category}}</a> | {{product.name}}</p>
     <div class="container">
         <br>
         <div class="row">
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6 text-center">
-                <div style="min-width: 18rem;">
-                    <img src="{{product.image.url}}" alt="{{product.name}}">
+            <div class="animate_animatedanimate__fadeInDown col-12 col-sm-12 col-md-12 col-lg-6 text-center">
+                <div style="width: 35rem;">
+                    <img src="{{product.image.url}}" class = "" alt="{{product.name}}" style = "width: 100%" id ="productimg">
                 </div>
             </div>
-            <div class="col-12 col-sm-12 col-md-12 col-lg-6">
+            <div class="col-13 col-sm-12 col-md-12 col-lg-6 text-center border">
                 <div>
                     <h1 class="my_prod_title">{{product.name}}</h1>
                     <p>£{{product.price}}</p>
@@ -29,11 +29,15 @@ product.category.get_url }}">{{product.category}}</a> | {{product.name}}</p>
                     {% if product.stock == 0%}
                     <p class="text-justify my_prod_text"><b>Out of Stock</b></p>
                     {% else %}
-                    <a class="btn btn-secondary" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
+                    <a class="btn btn-dark btn-lg btn-block" href="{% url 'cart:add_cart' product.id %}">Add to Cart</a>
                     {% endif %}
                 </div>
-            </div>
+            </div> <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
         </div>
     </div>
 </div>
+
 {% endblock %}

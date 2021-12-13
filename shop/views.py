@@ -39,4 +39,4 @@ class ProdDetail(DetailView):
         except Exception as e:
             raise e
 
-        return render(request,"shop/category.html",{'product':product})
+        return render(request,"shop/product.html",{'product':product})

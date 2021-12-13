@@ -31,7 +31,7 @@ body {
                 .my_title {
                 font-size: 16px;
                 text-transform: uppercase;
-                letter-spacing: .2em;
+    
                 }
                 #into-jumbotron {
                     background: rgb(49, 52, 56);
@@ -61,7 +61,7 @@ body {
                     }
                     .my_prod_row_class .mx-auto p {
                     color: #000;
-                    font-size: 12px;
+                    font-size: 14px;
                     }
                     .my_prod_row_class .mx-auto p a {
                     color: #000;
@@ -72,12 +72,11 @@ body {
                     .my_prod_title {
                         font-size: 30px;
                         text-transform: uppercase;
-                        letter-spacing: .2em;
                         padding-top: 15px;
                         padding-bottom: 10px;
                         }
                         .my_prod_text {
-                        padding-right: 20px;
+                        padding-right: 50px;
                         }
 
 /****Cart Page****/
@@ -88,7 +87,6 @@ body {
     .my_custom_thead {
     font-weight: normal;
     text-transform: uppercase;
-    letter-spacing: .2em;
     background-color: #f8f9fa!important;
     }
     .custom_image {

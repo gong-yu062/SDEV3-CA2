@@ -1,26 +1,40 @@
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect
 from .forms import CustomUserCreationForm
-from django.views.generic import CreateView, UpdateView, DetailView
-from .models import Profile
+from .models import CustomUser
+from django.contrib.auth.models import Group
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import login, authenticate, logout
 
-from .forms import CustomUserCreationForm
+def signupView(request):
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = form.cleaned_data.get('username')
+            signup_user = CustomUser.objects.get(username=username)
+            customer_group = Group.objects.get(name='Customer')
+            customer_group.user_set.add(signup_user)
+    else:
+        form = CustomUserCreationForm()
+    return render(request, 'registration/signup.html', {'form':form})
 
-class SignUpView(CreateView):
-    form_class = CustomUserCreationForm
-    success_url = reverse_lazy('login')
-    template_name = 'registration/signup.html'
 
-class UserEditView(UpdateView):
-    model = Profile()
-    template_name = 'registration/edit_profile.html'
-    success_url = reverse_lazy('home')
+def signinView(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request.POST)
+        if form.is_valid():
+            username = request.POST['username']
+            password = request.POST['password']
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('shop:allProdCat')
+            else:
+                return direct('signup')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'registration/signin.html', {'form':form})
 
-    def get_object(self):
-        return self.request.user.profile
-
-class ProfilePageView(DetailView):
-    model = Profile
-    template_name = 'registration/user_profile.html'
-
-    def get_object(self):
-       return self.request.user
+def signoutView(request):
+    logout(request)
+    return redirect('signin')
