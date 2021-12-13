@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'accounts',
     'shop',
     'cart',
+    'stripe',
     'crispy_forms',
     'crispy_bootstrap5',
 ]
@@ -141,3 +142,5 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACLEND = 'django.core.mail.backends.console.EmailBackend'
+STRIPE_SECRET_KEY = 'sk_test_51K2DRHAKlKDNejgmbaUYf25bhnFxJgsuwxJFmQWdWAObRMwVHPSorKBADGt8tyyVInfeY1nOCNNlhxNFJp0zo79l00xBZ6o8bD'
+STRIPE_PUBLISHABLE_KEY = 'pk_test_51K2DRHAKlKDNejgmMCSTdU1QNo2y1s7tJQdHzYbiqdexCyLocRkjACRMv9qlq4DEQd3hHTnPk2rfC8epcsb1C1jn0037TBxwMB'
