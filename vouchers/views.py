@@ -12,7 +12,7 @@ def voucher_apply(request):
         code = form.cleaned_data['code']
         try:
             voucher = Voucher.objects.get(code__iexact=code,
-                                     valid_form__lte=now,
+                                     valid_from__lte=now,
                                      valid_to__gte=now,
                                      active=True)
             request.session['voucher_id'] = voucher.id

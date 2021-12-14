@@ -4,7 +4,7 @@
 This is the shopping cart page. Proceed to review your items and place the order.
 {% endblock %}
 {% block title %}
-Cart - Perfect Cushion Store
+Cart - Games store
 {% endblock %}
 {% block content %}
 {% if not cart_items %}
@@ -59,19 +59,14 @@ Cart - Perfect Cushion Store
 						£{{cart_item.sub_total}}
 					</td>
 					{% if cart_item.quantity < cart_item.product.stock %} <td>
-						<a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom_a"><i
-								class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
-						<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a"><i
-								class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
-						<a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_icon"><i
-								class="fas fa-trash-alt custom_icon"></i></a>
+						<a href="{% url 'cart:add_cart' cart_item.product.id %}" class="custom_a"><i class="fas fa-plus-circle custom_icon"></i></a>&nbsp;
+						<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a"><i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
+						<a href="" class="custom_icon"><i class="fas fa-trash-alt custom_icon"></i></a>
 						</td>
 						{% else %}
 						<td>
-							&nbsp;<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a"><i
-									class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
-							<a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_icon"><i
-									class="fas fa-trash-alt custom_icon"></i></a>
+							&nbsp;<a href="{% url 'cart:cart_remove' cart_item.product.id %}" class="custom_a"><i class="fas fa-minus-circle custom_icon"></i></a>&nbsp;
+							<a href="{% url 'cart:full_remove' cart_item.product.id %}" class="custom_icon"><i class="fas fa-trash-alt custom_icon"></i></a>
 						</td>
 						<td></td>
 						{% endif %}
@@ -117,8 +112,7 @@ Cart - Perfect Cushion Store
 					<td>Total</td>
 					<td colspan="4"></td>
 					<td class="num">
-						€{{
-						new_total|floatformat:"2" }}
+						€{{ new_total|floatformat:"2" }}
 					</td>
 				</tr>
 				{% else %}
@@ -126,8 +120,7 @@ Cart - Perfect Cushion Store
 					<td>Total</td>
 					<td colspan="4"></td>
 					<td class="num">
-						€{{ total|floatformat:"2"
-						}}
+						€{{ total|floatformat:"2" }}
 					</td>
 				</tr>
 				{% endif %}
@@ -139,16 +132,23 @@ Cart - Perfect Cushion Store
 			<input type="submit" value="Apply">
 			{% csrf_token %}
 		</form>
-		</tbody>
-		</table>
+		<br>
 		<form action="" method="POST">
 			{% csrf_token %}
-			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button" data-key="{{ data_key }}"
-				data-amount="{{ stripe_total }}" data-name="Perfect Cushion Shop" data-description="{{ description }}"
-				data-image="{% static 'images/logo.png' %}" data-locale="auto" data-currency="eur"
-				data-shipping-address="true" data-billing-address="true" data-zip-code="true">
-				</script>
-		</form>
+			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			data-key="{{ data_key }}"
+			data-amount="{{ stripe_total }}"
+			data-name="Perfect Cushion Shop"
+			data-description="{{ description }}"
+			data-image="{% static 'images/logo.png' %}"
+			data-locale="auto"
+			data-currency="eur"
+			data-shipping-address="true"
+			data-billing-address="true"
+			data-zip-code="true">
+			</script>
+			</form> 
+			
 		<div class="mx-auto">
 			<a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue
 				Shopping</a>
