@@ -138,7 +138,7 @@ Cart - Games store
 			<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 			data-key="{{ data_key }}"
 			data-amount="{{ stripe_total }}"
-			data-name="Perfect Cushion Shop"
+			data-name="Games Store"
 			data-description="{{ description }}"
 			data-image="{% static 'images/logo.png' %}"
 			data-locale="auto"
@@ -148,7 +148,7 @@ Cart - Games store
 			data-zip-code="true">
 			</script>
 			</form> 
-			
+
 		<div class="mx-auto">
 			<a href="{% url 'shop:allProdCat' %}" class="btn btn-secondary btn-block my_custom_button">Continue
 				Shopping</a>
