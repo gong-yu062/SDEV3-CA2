@@ -1,6 +1,6 @@
 from shop.models import Product
 from django.views.generic import ListView
-from django.db.models import Q, query
+from django.db.models import Q
 from django.shortcuts import render
 
 # Create your views here.

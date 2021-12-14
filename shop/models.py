@@ -28,11 +28,12 @@ class Product(models.Model):
         primary_key=True,
         default=uuid.uuid4,
         editable=False)
+
     name = models.CharField(max_length=250, unique=True)
     description = models.TextField(blank=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    image = models.ImageField(upload_to='category', blank=True)
+    image = models.ImageField(upload_to='product', blank=True)
     stock = models.IntegerField()
     available = models.BooleanField()
     created = models.DateTimeField(auto_now_add=True,blank=True,null=True)
